@@ -96,7 +96,23 @@ class BST{
         }
     }
 
-
+    max(){
+        var runner = this.head;
+        while(runner){
+            if(runner.left > runner.right && runner.left != null){
+                runner = runner.left;
+            }
+            else if(runner.right > runner.left && runner.right != null){
+                runner = runner.right;
+            }
+            else if(runner.left == null && runner.right == null){
+                return runner.val;
+            }
+        }
+        if(runner == null){
+            return "empty";
+        }
+    }
 
 
 
