@@ -28,7 +28,7 @@ class BST{
                         return this;
                     }
                 }
-                else if(val >= runner.val){
+                else if(val <= runner.val){
                     if(runner.left != null){
                         runner = runner.left;
                     }
@@ -114,12 +114,33 @@ class BST{
         }
     }
 
-    size(){
+    leftThenRight(node){
+        var count = 0;
         
+
+        if(node.left != null){
+            this.leftThenRight(node.left);
+            count++
+        }
+        if(node.right != null){
+            this.leftThenRight(node.right);
+            count++;
+        }
+            
+
+        if(node == null) {
+            return "empty";
+        }
+        count++;
+        return count;
+    }
+
+    size(){
+        return this.leftThenRight(this.root);
     }
 
     isEmpty(){
-        if(this.head ==  null){
+        if(this.root ==  null){
             return true;
         }
         else{
@@ -135,8 +156,9 @@ class BST{
 
 
 var myBST = new BST();
-myBST.add(10).add(50);
-console.log(myBST);
+myBST.add(10).add(50).add(41).add(14);
+
+console.log(myBST.size());
 
 
 
