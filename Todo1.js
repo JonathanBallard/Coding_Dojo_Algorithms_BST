@@ -114,6 +114,18 @@ class BST{
         }
     }
 
+    size(){
+        
+    }
+
+    isEmpty(){
+        if(this.head ==  null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 
